@@ -1,3 +1,78 @@
+H	1
+He	4
+Li	7
+Be	9
+B	11
+C	12
+N	14
+O	16
+F	19
+Ne	20
+Na	23
+Mg	24
+Al	27
+Si	28
+P	31
+S	32
+Cl	35
+Ar	40
+K	39
+Ca	40
+Sc	45
+Ti	48
+V	51
+Cr	52
+Mn	55
+Fe	56
+Co	59
+Ni	59
+Cu	64
+Zn	65
+Ga	70
+Ge	73
+As	75
+Se	79
+Br	80
+Kr	84
+Rb	85
+Sr	88
+Y	89
+Zr	91
+Nb	93
+Mo	96
+Tc	99
+Ru	101
+Rh	103
+Pd	106
+Ag	108
+Cd	112
+In	115
+Sn	119
+Sb	122
+Te	128
+I	127
+Xe	131
+Cs	133
+Ba	137
+La	139
+Ce	140
+Pr	141
+END_OF_FIRST_PART
+CO(NH2)2
+Cu2(OH)2CO3
+SbBr5
+HCl
+H2CO3
+SO3
+MnO2
+CH3COOH
+KOH
+Fe3O4
+FeO
+CuCl2
+FeS2
+0
+
 H 1
 He 4
 C 12
