@@ -3,7 +3,9 @@
 using namespace std;
 
 typedef long long LL;
-const long long maxN=2000010; 
+typedef long double LD;
+
+const long long maxN=200010; 
 
 inline int _read()
 {

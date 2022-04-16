@@ -141,39 +141,10 @@ void pri(int **num)
 
 void gauss(Matrix &_T)
 {
-#ifdef testOne
-	Matrix _cur=_T;
-	LD _temp[_maxN][_maxM]={0};
-	for(int k=1;k<=_T._n-1;k++)
-	{
-		if(!_cur._num[k][k])
-			continue;
-		for(int i=k+1;i<=_T._n;i++)
-		{
-			_temp[i][k]=_cur._num[i][k]/_cur._num[k][k];
-			debugPara(_T._num[i][k]);
-			debugPara(_T._num[k][k]);
-			debugPara(_temp[i][k]);
-			/*for(int j=k+1;j<=_T._n;j++)
-			{
-				dbg(1);
-				_T._num[i][j]=_T._num[i][j]-_temp[i][k]*_T._num[k][j];
-				_T._num[i][_T._m]=_T._num[i][_T._m]-_temp[i][k]*_T._num[k][_T._m];
-			}*/
-			for(int j=k+1;j<=_T._n;j++)
-			{
-				_T._num[i][j]=_cur._num[i][j]-_temp[i][k]*_cur._num[k][j];
-				_T._num[i][_T._m]=_cur._num[i][_T._m]-_temp[i][k]*_cur._num[k][_T._m];
-			}
-		}
-		_cur=_T;
-		_T.print();
-	}
-#endif
 	for(int i=1;i<=_T._n;i++)
 	{
 		int _current=i;
-		for(int j=i;j<=_T._n+1;j++)
+		for(int j=i;j<=_T._n;j++)
 			if(fabs(_T._num[j][i]-_T._num[_current][i])<=_minN)
 				_current=j;
 		for(int j=1;j<=_T._n+1;j++)
@@ -191,7 +162,6 @@ void gauss(Matrix &_T)
 					_T._num[j][k]-=_T._num[j][i]*_T._num[i][k];
 	}
 	for(int i=1;i<=_T._n;i++)
-		//cout<<_T._num[i][_T._n+1]<<endl;
 		printf("%.2Lf\n",_T._num[i][_T._n+1]);
 	return ;
 }
@@ -201,9 +171,7 @@ int n;
 
 signed main()
 {
-	//freopen("1.txt","r",stdin);
-	/*A.scan();
-	B.scan();*/
+	freopen("1.txt","r",stdin);
 	cin>>n;
 	A._n=A._m=B._n=n;
 	B._m=1;
@@ -214,7 +182,8 @@ signed main()
 		cin>>B._num[i][1];
 	}
 	C=A|B;
-	//C.print();
+	
 	gauss(C);
+	C.print();
 	return 0;
 }

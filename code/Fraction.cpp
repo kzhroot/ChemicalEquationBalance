@@ -26,62 +26,83 @@ int _gcd(int _x,int _y)
 struct Frac
 {
 	int _mole,_deno;
-	inline Frac operator = (const int& _num) const
+	inline const Frac operator = (const int& tempNum)
 	{
-		return (Frac){_num,1};
+		_mole=tempNum,_deno=1;
+		return *this;
 	}
-	inline Frac operator = (const Frac& _T) const
+	inline const Frac operator = (const Frac& tempNum)
 	{
-		int _nextGcd=_gcd(_T._mole,_T._deno);
-		return (Frac){_T._mole/_nextGcd,_T._deno/_nextGcd};
+		int _nextGcd=_gcd(tempNum._mole,tempNum._deno);
+		_mole=tempNum._mole/_nextGcd,_deno=tempNum._deno/_nextGcd;
+		return *this;
 	}
-	inline Frac operator + (const Frac& _T) const
+	inline const Frac operator + (const Frac& tempNum) const
 	{
-		int _nextMole=_mole*_T._deno+_deno*_mole,
-		_nextDeno=_deno*_T._deno;
+		int _nextMole=_mole*tempNum._deno+_deno*tempNum._mole,
+		_nextDeno=_deno*tempNum._deno;
 		int _nextGcd=_gcd(_nextMole,_nextDeno);
 		return (Frac){_nextMole/_nextGcd,_nextDeno/_nextGcd};
 	}
-	inline Frac operator - (const Frac& _T) const
+	inline const Frac operator - (const Frac& tempNum) const
 	{
-		int _nextMole=_mole*_T._deno-_deno*_mole,
-		_nextDeno=_deno*_T._deno;
+		int _nextMole=_mole*tempNum._deno-_deno*tempNum._mole,
+		_nextDeno=_deno*tempNum._deno;
 		int _nextGcd=_gcd(_nextMole,_nextDeno);
 		return (Frac){_nextMole/_nextGcd,_nextDeno/_nextGcd};
 	}
-	inline Frac operator * (const Frac& _T) const
+	inline const Frac operator * (const Frac& tempNum) const
 	{
-		int _nextMole=_mole*_T._mole,
-		_nextDeno=_deno*_T._deno;
+		int _nextMole=_mole*tempNum._mole,
+		_nextDeno=_deno*tempNum._deno;
 		int _nextGcd=_gcd(_nextMole,_nextDeno);
 		return (Frac){_nextMole/_nextGcd,_nextDeno/_nextGcd};
 	}
-	inline Frac operator / (const Frac& _T) const
+	inline const Frac operator * (const int& tempNum) const
 	{
-		int _nextMole=_mole*_T._deno,
-		_nextDeno=_deno*_T._mole;
+		int _nextMole=_mole*tempNum,
+		_nextDeno=_deno;
 		int _nextGcd=_gcd(_nextMole,_nextDeno);
 		return (Frac){_nextMole/_nextGcd,_nextDeno/_nextGcd};
 	}
-	inline bool operator > (const Frac& _T) const
+	inline const Frac operator / (const Frac& tempNum) const
 	{
-		return _mole*_T._deno>_deno*_mole;
+		int _nextMole=_mole*tempNum._deno,
+		_nextDeno=_deno*tempNum._mole;
+		int _nextGcd=_gcd(_nextMole,_nextDeno);
+		return (Frac){_nextMole/_nextGcd,_nextDeno/_nextGcd};
 	}
-	inline bool operator < (const Frac& _T) const
+	inline const Frac operator / (const int& tempNum) const
 	{
-		return _mole*_T._deno<_deno*_mole;
+		int _nextMole=_mole,
+		_nextDeno=_deno*tempNum;
+		int _nextGcd=_gcd(_nextMole,_nextDeno);
+		return (Frac){_nextMole/_nextGcd,_nextDeno/_nextGcd};
 	}
-	inline bool operator == (const Frac& _T) const
+	inline const bool operator > (const Frac& tempNum) const
 	{
-		return _mole*_T._deno==_deno*_mole;
+		return _mole*tempNum._deno>_deno*tempNum._mole;
 	}
-	inline Frac abs() const
+	inline const bool operator < (const Frac& tempNum) const
 	{
-		if(_mole>0&&_deno>0)
-			return (Frac){_mole,_deno};
-		if(_mole<0&&_deno<0)
-			return (Frac){-_mole,-_deno};
-		return _mole<0?(Frac){_mole,_deno}:(Frac){-_mole,-_deno};
+		return _mole*tempNum._deno<_deno*tempNum._mole;
+	}
+	inline const bool operator <= (const Frac& tempNum) const
+	{
+		return _mole*tempNum._deno<=_deno*tempNum._mole;
+	}
+	inline const bool operator == (const Frac& tempNum) const
+	{
+		return _mole*tempNum._deno==_deno*tempNum._mole;
+	}
+	inline const Frac abs()
+	{
+		_mole=fabs(_mole),_deno=fabs(_deno);
+		return *this;
+	}
+	inline void print()
+	{
+		cout<<_mole<<"/"<<_deno<<" ";
 	}
 };
 
