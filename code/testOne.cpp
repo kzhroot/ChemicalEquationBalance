@@ -104,6 +104,7 @@ void init()
 			f*=-1;
 		i=j+1;//something wrong
 		//dbp(i);
+		cout<<"1"<<endl;
 	}
 	//dbg(3);
 	/*for(int i=1;i<=n;i++)
@@ -207,9 +208,9 @@ int main()
 	//freopen("out.txt","w",stdout);
 	//dbg(1);
 	init();
-	for(int i=1;i<=n;i++,cout<<endl)
+	/*for(int i=1;i<=n;i++,cout<<endl)
 		for(int j=1;j<=m;j++)
-			cout<<a[i][j]<<" ";
+			cout<<a[i][j]<<" ";*/
 	//dbg(2);
 	gs();
 	//dbg(899);

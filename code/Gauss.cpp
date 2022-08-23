@@ -172,12 +172,16 @@ int n;
 signed main()
 {
 	freopen("1.txt","r",stdin);
-	cin>>n;
+	/*cin>>n;
 	A._n=A._m=B._n=n;
-	B._m=1;
-	for(int i=1;i<=n;i++)
+	B._m=1;*/
+	int curA,curB;
+	cin>>curA>>curB;
+	A._n=curA,A._m=curB;
+	B._n=curA,B._m=1;
+	for(int i=1;i<=A._n;i++)
 	{
-		for(int j=1;j<=n;j++)
+		for(int j=1;j<=A._m;j++)
 			cin>>A._num[i][j];
 		cin>>B._num[i][1];
 	}
